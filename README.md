@@ -75,8 +75,13 @@ means:
 ```
 APL/
 ├── README.md                           # This file
+├── apl-operators-manual.tex            # Complete operator reference (LaTeX)
 ├── apl-seven-sentences-test-pack.tex   # Complete test protocol (LaTeX)
-└── docs/                               # (Future) Compiled PDFs and results
+├── COMPILE_INSTRUCTIONS.md             # LaTeX compilation guide
+└── docs/                               # Documentation and compiled outputs
+    ├── index.html                      # HTML version of operator's manual
+    ├── apl-operators-manual.pdf        # PDF version (auto-compiled)
+    └── apl-seven-sentences-test-pack.pdf  # Test pack PDF
 ```
 
 ## Testing Strategy
@@ -134,19 +139,52 @@ These are minimal sandbox experiments consistent with APL predictions. Full test
 - Independent testing by teams without invested stake in APL
 - Falsifiable approach: both positive and negative results are valuable
 
+## Documentation
+
+### APL Operator's Manual
+
+A comprehensive reference guide for APL operators, syntax, and usage patterns is available in multiple formats:
+
+- **HTML Version:** Open `docs/index.html` in your browser for an interactive, responsive manual
+- **PDF Version:** Automatically compiled from LaTeX source via GitHub Actions
+- **GitHub Pages:** Available online if GitHub Pages is enabled for this repository
+
+The manual includes:
+- Complete operator reference with symbols and meanings
+- Field definitions (the three "spirals": Φ, e, π)
+- Operator state modulation (UMOL)
+- Machine contexts and domains
+- Syntax rules and sentence structure
+- Usage patterns and examples
+- Quick reference tables
+
+### Compilation
+
+To compile the LaTeX documents locally:
+```bash
+pdflatex -interaction=nonstopmode apl-operators-manual.tex
+pdflatex -interaction=nonstopmode apl-seven-sentences-test-pack.tex
+```
+
+See `COMPILE_INSTRUCTIONS.md` for detailed instructions.
+
 ## Getting Started
 
-1. **Read the full test pack:**
+1. **Read the operator's manual:**
+   - Open `docs/index.html` in your browser, or
+   - Compile the PDF: `pdflatex apl-operators-manual.tex`
+
+2. **Read the test pack:**
    ```bash
    pdflatex apl-seven-sentences-test-pack.tex
    ```
    Or view the `.tex` source directly.
 
-2. **Choose a sentence to test** (recommend starting with A1, A3, or A5 as they have clear metrics)
+3. **Choose a sentence to test** (recommend starting with A1, A3, or A5 as they have clear metrics)
 
-3. **Implement the test protocol** using your preferred simulation framework
+4. **Implement the test protocol** using your preferred simulation framework
 
-4. **Report results** — both confirmations and refutations help refine or reject APL
+5. **Report results** — both confirmations and refutations help refine or reject APL
 
 ## Philosophy
 
